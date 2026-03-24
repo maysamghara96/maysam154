@@ -1,186 +1,135 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room: The Digital Glitch</title>
+    <title>Modals & Semi-Modals Quiz</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Press+Start+2P&display=swap');
-
-        body {
-            background-color: #0a0a12;
-            color: #ffffff;
-            font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .game-container {
-            max-width: 800px;
-            margin: 0 auto;
-            border: 4px solid #00d2ff;
-            background: #16213e;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
-        }
-
-        #timer {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 2rem;
-            color: #ff4d4d;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px #000;
-            position: sticky;
-            top: 10px;
-            background: rgba(16, 33, 62, 0.9);
-            padding: 10px;
-            z-index: 100;
-        }
-
-        h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 1.2rem;
-            color: #00d2ff;
-            line-height: 1.5;
-        }
-
-        .mission-box {
-            background: #1b264f;
-            margin: 20px 0;
-            padding: 15px;
-            border-right: 5px solid #e94560;
-            border-radius: 10px;
-            text-align: right;
-        }
-
-        .level-title {
-            color: #f8b400;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .question { font-size: 1.1rem; margin-bottom: 10px; }
-        
-        .hint {
-            font-size: 0.85rem;
-            color: #00ff41;
-            background: #000;
-            padding: 5px;
-            display: inline-block;
-            border-radius: 5px;
-        }
-
-        .password-input-section {
-            margin-top: 40px;
-            padding: 20px;
-            background: #0f3460;
-            border-radius: 10px;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 80%;
-            border-radius: 5px;
-            border: none;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        button {
-            padding: 10px 20px;
-            background: #e94560;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        button:hover { background: #ff2e63; }
-
-        .hidden { display: none; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
+        .quiz-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .question { margin-bottom: 25px; padding: 15px; border-left: 5px solid #3498db; background: #fafafa; }
+        .question-text { font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
+        .options { list-style: none; padding: 0; }
+        .options li { margin-bottom: 10px; }
+        label { cursor: pointer; display: block; padding: 8px; border-radius: 4px; transition: background 0.2s; }
+        label:hover { background: #eef2f3; }
+        button { display: block; width: 100%; padding: 15px; background: #3498db; color: white; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; margin-top: 20px; }
+        button:hover { background: #2980b9; }
+        #result { margin-top: 20px; padding: 20px; display: none; border-radius: 5px; text-align: center; font-weight: bold; font-size: 1.2em; }
+        .correct-bg { background-color: #d4edda; color: #155724; }
+        .incorrect-bg { background-color: #f8d7da; color: #721c24; }
+        .cloze-box { background: #e8f4fd; padding: 15px; border-radius: 5px; margin-bottom: 15px; font-style: italic; }
     </style>
 </head>
 <body>
 
-<div class="game-container">
-    <div id="timer">35:00</div>
+<div class="quiz-container">
+    <h1>English Grammar: Modals Quiz</h1>
+    <p style="text-align: center;">Select the best answer for each question.</p>
     
-    <h1>MISSION: DECODE THE SERVER</h1>
-    <p>حلوا الألغاز لجمع كلمات السر قبل انتهاء الوقت!</p>
-
-    <div id="game-content">
-        <div class="mission-box">
-            <div class="level-title">المرحلة 1: Audio Check</div>
-            <div class="question">"Teacher, I can’t hear you! ______ you please turn up your volume?"</div>
-            <div class="hint">Secret Word: (I)</div>
+    <form id="quizForm">
+        <div class="question">
+            <div class="question-text">1. You _______ see a doctor if that cough doesn't go away soon. (Recommendation)</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q1" value="correct"> A) should</label></li>
+                <li><label><input type="radio" name="q1" value="wrong"> B) might</label></li>
+                <li><label><input type="radio" name="q1" value="wrong"> C) would</label></li>
+                <li><label><input type="radio" name="q1" value="wrong"> D) may</label></li>
+            </ul>
         </div>
 
-        <div class="mission-box">
-            <div class="level-title">المرحلة 2: Anti-Cheat</div>
-            <div class="question">"To keep the game fair, players ______ use hacks."</div>
-            <div class="hint">Secret Word: (am)</div>
+        <div class="question">
+            <div class="question-text">2. At my new job, I _______ wear a uniform every day. (External Obligation)</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q2" value="wrong"> A) could</label></li>
+                <li><label><input type="radio" name="q2" value="correct"> B) have to</label></li>
+                <li><label><input type="radio" name="q2" value="wrong"> C) might</label></li>
+                <li><label><input type="radio" name="q2" value="wrong"> D) be able to</label></li>
+            </ul>
         </div>
 
-        <div class="mission-box">
-            <div class="level-title">المرحلة 3: Lag Issue</div>
-            <div class="question">"The screen is frozen. It ______ be a server problem."</div>
-            <div class="hint">Secret Word: (so)</div>
+        <div class="question">
+            <div class="question-text">3. When I was five, I _______ already swim across the whole pool. (Past Ability)</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q3" value="wrong"> A) must</label></li>
+                <li><label><input type="radio" name="q3" value="wrong"> B) should</label></li>
+                <li><label><input type="radio" name="q3" value="correct"> C) could</label></li>
+                <li><label><input type="radio" name="q3" value="wrong"> D) would</label></li>
+            </ul>
         </div>
 
-        <div class="mission-box">
-            <div class="level-title">المرحلة 4: Level Up</div>
-            <div class="question">"You ______ practice to win. Soon you will ______ beat the boss."</div>
-            <div class="hint">Secret Words: (proud of)</div>
+        <div class="question">
+            <div class="question-text">4. That _______ be Sarah at the door; she is currently on vacation in Italy. (Negative Certainty)</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q4" value="correct"> A) can't</label></li>
+                <li><label><input type="radio" name="q4" value="wrong"> B) might not</label></li>
+                <li><label><input type="radio" name="q4" value="wrong"> C) shouldn't</label></li>
+                <li><label><input type="radio" name="q4" value="wrong"> D) may not</label></li>
+            </ul>
         </div>
 
-        <div class="mission-box">
-            <div class="level-title">المرحلة 5: Login Rule</div>
-            <div class="question">"The class starts now. You ______ log in early."</div>
-            <div class="hint">Secret Word: (you)</div>
+        <div class="question">
+            <div class="question-text">5. After I finish this course, I _______ speak conversational Spanish. (Future Ability)</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q5" value="wrong"> A) can</label></li>
+                <li><label><input type="radio" name="q5" value="wrong"> B) would</label></li>
+                <li><label><input type="radio" name="q5" value="wrong"> C) must</label></li>
+                <li><label><input type="radio" name="q5" value="correct"> D) will be able to</label></li>
+            </ul>
         </div>
 
-        <div class="password-input-section">
-            <h3>أدخل كلمة السر النهائية لفك التشفير:</h3>
-            <input type="text" id="finalPass" placeholder="Write the secret sentence here...">
-            <br>
-            <button onclick="checkPassword()">إرسال الحل</button>
+        <div class="cloze-box">
+            <strong>Paragraph Context:</strong> "If you want to travel abroad, you <strong>(6)</strong> _______ have a valid passport. Without it, you <strong>(7)</strong> _______ not be allowed to board your flight."
         </div>
-    </div>
+
+        <div class="question">
+            <div class="question-text">6. Select the best fit for blank (6):</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q6" value="correct"> A) must</label></li>
+                <li><label><input type="radio" name="q6" value="wrong"> B) might</label></li>
+                <li><label><input type="radio" name="q6" value="wrong"> C) could</label></li>
+                <li><label><input type="radio" name="q6" value="wrong"> D) would</label></li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <div class="question-text">7. Select the best fit for blank (7):</div>
+            <ul class="options">
+                <li><label><input type="radio" name="q7" value="wrong"> A) should</label></li>
+                <li><label><input type="radio" name="q7" value="correct"> B) will</label></li>
+                <li><label><input type="radio" name="q7" value="wrong"> C) can</label></li>
+                <li><label><input type="radio" name="q7" value="wrong"> D) might</label></li>
+            </ul>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Submit Quiz</button>
+    </form>
+
+    <div id="result"></div>
 </div>
 
 <script>
-    // Timer Logic
-    let time = 35 * 60; // 35 minutes in seconds
-    const timerElement = document.getElementById('timer');
+    function calculateScore() {
+        const form = document.getElementById('quizForm');
+        const totalQuestions = 7;
+        let score = 0;
 
-    const countdown = setInterval(() => {
-        let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-        
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        timerElement.innerHTML = `${minutes}:${seconds}`;
-
-        if (time <= 0) {
-            clearInterval(countdown);
-            document.getElementById('game-content').innerHTML = "<h2 style='color:red;'>GAME OVER! لقد انتهى الوقت.</h2>";
+        for (let i = 1; i <= totalQuestions; i++) {
+            const answer = form.elements['q' + i].value;
+            if (answer === 'correct') {
+                score++;
+            }
         }
-        time--;
-    }, 1000);
 
-    // Password Check Logic
-    function checkPassword() {
-        const pass = document.getElementById('finalPass').value.trim().toLowerCase();
-        if (pass === "i am so proud of you") {
-            clearInterval(countdown);
-            alert("CONGRATULATIONS! 🏆\nلقد نجحتم في فك التشفير والهروب!");
-            document.querySelector('.game-container').style.borderColor = "#00ff41";
-            document.querySelector('.game-container').innerHTML = "<h1 style='color:#00ff41;'>🎉 MISSION ACCOMPLISHED! 🎉</h1><p style='font-size:2rem;'>I am so proud of you</p>";
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = "You scored " + score + " out of " + totalQuestions + "!";
+        
+        if (score === totalQuestions) {
+            resultDiv.className = 'correct-bg';
         } else {
-            alert("كلمة السر خاطئة! حاولوا مجدداً.");
+            resultDiv.className = 'incorrect-bg';
         }
     }
 </script>
