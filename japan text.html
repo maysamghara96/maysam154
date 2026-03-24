@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Cleanliness - Complete Interactive Worksheet</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 20px auto; padding: 20px; background-color: #f0f4f8; }
+        .container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { color: #d35400; text-align: center; border-bottom: 3px solid #d35400; padding-bottom: 10px; }
+        h2 { color: #2c3e50; margin-top: 40px; background: #eee; padding: 10px; border-radius: 5px; }
+        .paragraph-box { background: #fffaf5; padding: 25px; border-left: 6px solid #d35400; margin: 20px 0; font-size: 1.15em; border-radius: 4px; line-height: 1.8; }
+        .question-block { background: #ffffff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 25px; }
+        .q-text { font-weight: bold; display: block; margin-bottom: 10px; color: #34495e; }
+        .feedback { display: none; margin-top: 10px; padding: 12px; border-radius: 6px; font-weight: 500; }
+        .correct-f { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong-f { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        select, input[type="text"] { padding: 12px; width: 100%; max-width: 600px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; margin-bottom: 10px; display: block; }
+        button { background: #d35400; color: white; border: none; padding: 18px; border-radius: 8px; cursor: pointer; font-size: 20px; width: 100%; font-weight: bold; margin-top: 20px; }
+        .label { font-weight: bold; color: #d35400; margin-bottom: 5px; display: block; text-transform: uppercase; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>WHY IS JAPAN SO CLEAN? 🇯🇵</h1>
+
+    <h2>Exercise A: Word Matching</h2>
+    <div class="question-block">
+        <script>
+            const wordsA = [
+                {w: "amaze", m: "להדהים / يُدهش"}, {w: "citizen", m: "אזרח / مواطن"},
+                {w: "confident", m: "בטוח בעצמו / واثق بنفسه"}, {w: "community", m: "קהילה / مجتمع محلي"},
+                {w: "dirt", m: "לכלוך / قذارة"}, {w: "dustbin", m: "פח אשפה / سلة قمامة"},
+                {w: "environment", m: "סביבה / بيئة"}, {w: "included", m: "כלול / משمول"},
+                {w: "responsibility", m: "אחריות / مسؤولية"}, {w: "timetable", m: "לוח זמנים / جدول زمني"}
+            ];
+            wordsA.forEach((item, i) => {
+                document.write(`<span class="q-text">${i+1}. ${item.w}</span>
+                <select id="vA${i}"><option value="">-- Select Meaning --</option>
+                <option value="c">${item.m}</option><option value="w">מטוס / طائرة</option></select>
+                <div id="fvA${i}" class="feedback"></div>`);
+            });
+        </script>
+    </div>
+
+    <h2>Exercise B: Sentence Completion</h2>
+    <div class="question-block">
+        <script>
+            const bank = ["amaze", "citizen", "confident", "community", "dirt", "dustbin", "environment", "included", "responsibility", "timetable"];
+            const sentences = [
+                {q: "1. Show me all the wonderful things you can do! ______ me!", a: "amaze"},
+                {q: "2. You don't have to leave a tip for the waiter. It is ______ in the bill.", a: "included"},
+                {q: "3. Please throw all these papers in the ______.", a: "dustbin"},
+                {q: "4. Every ______ in the country has the right to vote.", a: "citizen"},
+                {q: "5. It is our ______ to take care of our parents when they are old.", a: "responsibility"},
+                {q: "6. Don't bring any ______ into the house. Take off your shoes.", a: "dirt"}
+            ];
+
+            sentences.forEach((s, i) => {
+                let options = `<option value="">-- Select Word --</option>`;
+                bank.sort().forEach(word => {
+                    options += `<option value="${word === s.a ? 'c' : 'w'}">${word}</option>`;
+                });
+                document.write(`<span class="q-text">${s.q}</span>
+                <select id="vB${i}">${options}</select>
+                <div id="fvB${i}" class="feedback"></div>`);
+            });
+        </script>
+    </div>
+
+    <h2>Exercise C: Translation</h2>
+    <div class="question-block">
+        <script>
+            const wordsC = ["activity", "community", "elementary school", "equipment", "process", "proud", "skill", "team"];
+            const meaningsC = ["פעילות / فعالية", "קהילה / مجتمع محلي", "בית ספר יסודי / مدرسة ابتدائية", "ציוד / معدات", "תהליך / مسار", "גאה / فخور", "מיומנות / מهارة", "צוות / طاقم"];
+            const wrongC = ["אופניים / بسكليت", "אבטיח / بطيخ", "שולחן / طاولة", "מנורה / مصباح", "חתול / قطة", "שוקולד / شوكولاتة", "ענן / سحابة", "נעליים / أحذية"];
+            
+            wordsC.forEach((w, i) => {
+                document.write(`<span class="q-text">${i+1}. ${w}</span>
+                <select id="vC${i}"><option value="">-- Select --</option>
+                <option value="c">${meaningsC[i]}</option>
+                <option value="w">${wrongC[i]}</option></select>
+                <div id="fvC${i}" class="feedback"></div>`);
+            });
+        </script>
+    </div>
+
+    <h2>Exercise D: Contextual Choice</h2>
+    <div class="question-block">
+        <span class="q-text">1. I want my parents to be (proud/confident) of me.</span>
+        <select id="vD0"><option value="">-- Choose --</option><option value="c">proud</option><option value="w">confident</option></select>
+        <div id="fvD0" class="feedback"></div>
+
+        <span class="q-text">2. It is very exciting for children to enter the first grade in (environment/elementary school).</span>
+        <select id="vD1"><option value="">-- Choose --</option><option value="w">environment</option><option value="c">elementary school</option></select>
+        <div id="fvD1" class="feedback"></div>
+
+        <span class="q-text">3. My basketball (skill/team) won the championship last week.</span>
+        <select id="vD2"><option value="">-- Choose --</option><option value="w">skill</option><option value="c">team</option></select>
+        <div id="fvD2" class="feedback"></div>
+
+        <span class="q-text">4. Becoming a doctor is a very long (process/activity).</span>
+        <select id="vD3"><option value="">-- Choose --</option><option value="c">process</option><option value="w">activity</option></select>
+        <div id="fvD3" class="feedback"></div>
+
+        <span class="q-text">5. I live in a very small (community/environment) of only 50 families.</span>
+        <select id="vD4"><option value="">-- Choose --</option><option value="c">community</option><option value="w">environment</option></select>
+        <div id="fvD4" class="feedback"></div>
+
+        <span class="q-text">6. As a counselor in the Scouts, I have to think of a new (activity/equipment) every week.</span>
+        <select id="vD5"><option value="">-- Choose --</option><option value="c">activity</option><option value="w">equipment</option></select>
+        <div id="fvD5" class="feedback"></div>
+
+        <span class="q-text">7. Cooking well is a very useful (equipment/skill).</span>
+        <select id="vD6"><option value="">-- Choose --</option><option value="w">equipment</option><option value="c">skill</option></select>
+        <div id="fvD6" class="feedback"></div>
+
+        <span class="q-text">8. If you want to hike, you need the right (timetable / equipment).</span>
+        <select id="vD7"><option value="">-- Choose --</option><option value="w">timetable</option><option value="c">equipment</option></select>
+        <div id="fvD7" class="feedback"></div>
+    </div>
+
+    <h2>Part 2: Reading & Questions</h2>
+
+    <div class="paragraph-box">
+        <span class="label">Paragraph I</span>
+        One of the things that amazes tourists when they visit Japan is that the streets in the cities of Japan are very clean. This is especially surprising because there are no dustbins in the streets to throw garbage in. So how do Japanese keep the streets so clean? They just put the garbage in their bags and get rid of it when they return home. They know that it is their responsibility to keep their environment clean.
+    </div>
+    <div class="question-block">
+        <span class="q-text">1. What do we learn about the Japanese people according to paragraph I?</span>
+        <select id="u1">
+            <option value="">-- Select --</option>
+            <option value="w">i) What they do to keep their streets clean.</option>
+            <option value="c">ii) Why they are responsible for their environment.</option>
+            <option value="w">iii) Who helps them clean their streets.</option>
+            <option value="w">iv) What effect garbage has on their lives.</option>
+        </select>
+        <div id="fu1" class="feedback"></div>
+
+        <span class="q-text" style="margin-top:20px;">2. Why is it surprising that Japan's streets are so clean?</span>
+        <input type="text" id="u2" placeholder="Answer based on Paragraph I...">
+        <div id="fu2" class="feedback"></div>
+    </div>
+
+    <div class="paragraph-box">
+        <span class="label">Paragraph II</span>
+        When Japanese come home, they take off their shoes because they should not bring in any dirt from the outside. They do so also at school. In addition, during the last 15 minutes of each school day, students have to clean their classrooms. It is included in the school timetable so all students, from elementary school to high school, participate in this activity.
+    </div>
+    <div class="question-block">
+        <span class="q-text">3. What do Japanese children do to keep school clean? (Two things)</span>
+        <input type="text" id="u3a" placeholder="1. When they come to school, they...">
+        <input type="text" id="u3b" placeholder="2. At the end of the day, they...">
+        <div id="fu3" class="feedback"></div>
+
+        <span class="q-text" style="margin-top:20px;">4. According to paragraph II, who takes part in cleaning the school?</span>
+        <select id="u4">
+            <option value="">-- Select --</option>
+            <option value="w">i) Students in the first grade.</option>
+            <option value="w">ii) Only high school students.</option>
+            <option value="w">iii) Students and teachers.</option>
+            <option value="c">iv) All the students.</option>
+        </select>
+        <div id="fu4" class="feedback"></div>
+    </div>
+
+    <div class="paragraph-box">
+        <span class="label">Paragraph III</span>
+        In other countries, students consider cleaning their classrooms to be a punishment. In Japan, however, it is part of the learning process. Mukai, a schoolteacher, says, "We just want to teach them that if you use something or spend time in a certain place you need to clean it up yourself".
+    </div>
+    <div class="question-block">
+        <span class="q-text">5. What does Mukai explain in paragraph III?</span>
+        <select id="u5">
+            <option value="">-- Select --</option>
+            <option value="w">i) What students from other countries think about cleaning.</option>
+            <option value="w">ii) Why cleaning the classroom is a punishment.</option>
+            <option value="c">iii) What Japanese students learn at school.</option>
+            <option value="w">iv) Why students want to clean their classrooms.</option>
+        </select>
+        <div id="fu5" class="feedback"></div>
+    </div>
+
+    <div class="paragraph-box">
+        <span class="label">Paragraph IV</span>
+        While cleaning, students learn to take responsibility and also learn life skills such as working in a team and helping each other. In some schools, students of different ages clean together. This way the younger students can learn cleaning skills from the older ones. They also learn to use cleaning equipment such as brooms, brushes and vacuum cleaners. "At first, I didn't know how to use the vacuum cleaner, so an older student showed me."
+    </div>
+    <div class="question-block">
+        <span class="q-text">6. Give an example of a life skill that students learn at school:</span>
+        <input type="text" id="u6" placeholder="They learn to...">
+        <div id="fu6" class="feedback"></div>
+
+        <span class="q-text" style="margin-top:20px;">7. Akiko says: "It's a good feeling that you can get help." Give an example from paragraph IV:</span>
+        <input type="text" id="u7" placeholder="Type example...">
+        <div id="fu7" class="feedback"></div>
+    </div>
+
+    <div class="paragraph-box">
+        <span class="label">Paragraph V</span>
+        School is not just learning from books. It is about learning how to become a member of society and taking responsibility. It makes the children proud of themselves and of their community, and it makes them grow up to be responsible citizens who keep their country clean.
+    </div>
+    <div class="question-block">
+        <span class="q-text">8. What makes children proud of themselves?</span>
+        <select id="u8">
+            <option value="">-- Select --</option>
+            <option value="w">i) Learning from books.</option>
+            <option value="c">ii) Taking responsibility.</option>
+            <option value="w">iii) Living in their community.</option>
+            <option value="w">iv) Becoming students.</option>
+        </select>
+        <div id="fu8" class="feedback"></div>
+    </div>
+
+    <button onclick="checkWorksheet()">Grade My Worksheet</button>
+</div>
+
+<script>
+    function checkWorksheet() {
+        // Logic for all Select Boxes
+        document.querySelectorAll('select').forEach(sel => {
+            const fb = document.getElementById('f' + sel.id);
+            if(fb) {
+                fb.style.display = "block";
+                if(sel.value === "c") { fb.className = "feedback correct-f"; fb.innerHTML = "✅ Correct!"; }
+                else { fb.className = "feedback wrong-f"; fb.innerHTML = "❌ Try again!"; }
+            }
+        });
+
+        // Logic for Text Inputs
+        const textRules = [
+            {id: 'u2', inc: 'dustbin'}, {id: 'u3a', inc: 'shoes'}, {id: 'u3b', inc: 'classroom'},
+            {id: 'u6', inc: 'team'}, {id: 'u7', inc: 'older'}
+        ];
+        textRules.forEach(rule => {
+            const input = document.getElementById(rule.id);
+            const fb = document.getElementById('f' + rule.id);
+            if(fb) {
+                fb.style.display = "block";
+                if(input.value.toLowerCase().includes(rule.inc)) { fb.className = "feedback correct-f"; fb.innerHTML = "✅ Correct!"; }
+                else { fb.className = "feedback wrong-f"; fb.innerHTML = "❌ Check the text again."; }
+            }
+        });
+
+        alert("Worksheet Graded! See your results below each question.");
+    }
+</script>
+</body>
+</html>
